@@ -19,11 +19,7 @@ app.get("/root", async (req, res) => {
         setTimeout(async () => {
             try {
                 const response = await axios.get(resolveUrl);
-                res.send({
-                    delay,
-                    resolveUrl,
-                    resolvedData: response.data,
-                });
+                res.send(response.data);
             } catch (error) {
                 res.status(500).send({ error: "Failed to fetch resolveUrl.", details: error.message });
             }
